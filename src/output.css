@@ -605,6 +605,10 @@ video {
   margin-right: 0.5rem;
 }
 
+.mb-5{
+  margin-bottom: 1.25rem;
+}
+
 .ml-3{
   margin-left: 0.75rem;
 }
@@ -760,6 +764,10 @@ video {
   padding-top: 2.5rem;
 }
 
+.font-dm-sans{
+  font-family: DM Sans, sans-serif;
+}
+
 .text-3xl{
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -780,6 +788,10 @@ video {
 
 .font-normal{
   font-weight: 400;
+}
+
+.font-semibold{
+  font-weight: 600;
 }
 
 .leading-5{
@@ -887,10 +899,15 @@ body {
 }
 
 .content.active {
-  transform: scale(1);
   display: block;
   visibility: visible;
   transition: all 0.5s ease;
+  animation: slideIn 1s forwards;
+  /* Animation for the entire content */
+}
+
+.content.active .content-1{
+  transform: scale(1);
 }
 
 .banner .content h4 span {
@@ -934,6 +951,20 @@ body {
 
 .sci a:hover{
   color: var(--primary-color)
+}
+
+@keyframes slideIn {
+  0% {
+    /* width: 0; Start with width 0 */
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    /* width: 550px; Final width */
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hover\:bg-\[\#ff3700\]:hover{
@@ -991,5 +1022,16 @@ body {
 @media (min-width: 1024px){
   .lg\:w-\[950px\]{
     width: 950px;
+  }
+}
+
+@media (min-width: 1280px){
+  .xl\:pt-0{
+    padding-top: 0px;
+  }
+
+  .xl\:text-8xl{
+    font-size: 6rem;
+    line-height: 1;
   }
 }
