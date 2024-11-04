@@ -16,79 +16,50 @@
   </head>
   <body>
     <div class="body-container bg-black">
-      <!-- header start  -->
-      <header
-        class="absolute top-0 left-0 w-full z-10 flex flex-col md:flex-row justify-between items-center px-20 py-5"
-      >
-        <a href="#" class="logo text-3xl font-bold text-white mb-2 ">iSmail</a>
-        <ul class="nav flex gap-10">
-          <li class="hidden md:block">
-            <a href="#">
-              <i class="fa fa-home"></i>
-            </a>
-          </li>
-          <li><a href="#">Movies</a></li>
-          <li><a href="#">Series</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-        <!-- serach start  -->
-        <div class="search relative w-72 h-10 hidden lg:block">
-          <input
-            class="absolute left-0 top-0 w-full h-full text-white bg-transparent border-[1px] border-[rgba(255,255,255,0.5)] outline-none rounded-md backdrop-blur placeholder:text-white"
-            type="text"
-            placeholder="Search"
-          />
-          <i
-            class="fa fa-search absolute top-[62%] -translate-y-1/2 left-2 pr-2 text-white border-r-[1px] border-r-[#fff]"
-          ></i>
-        </div>
-        <!-- search end  -->
-      </header>
-      <!-- header end -->
+      
 
       <!-- banner start  -->
       <div
-        class="banner   relative w-full min-h-screen  py-24 md:px-20 flex flex-col md:flex-row justify-between items-center bg-[url('./assets/avatar.jpg')] bg-cover bg-center overflow-hidden transition-all duration-500"
+        class="banner relative w-full min-h-screen py-24 md:px-20 flex flex-col md:flex-row justify-between items-center bg-[url('./assets/saintmartin.jpg')] bg-cover bg-center overflow-hidden transition-all duration-500"
       >
-        <div class="content active  pr-20 pl-32 pt-10 md:pt-24 sm:px-0 md:px-10 relative z-10 w-[550px] hidden scale-0 transition-all duration-500"
+
+      <!-- content 1 -->
+        <div class="content active pr-20 pl-32 pt-10 md:pt-24 sm:px-0 md:px-10 relative z-10 w-[550px] hidden scale-0 transition-all duration-500"
         >
           <div class="flex flex-col gap-2 items-center md:items-start">
-            <img
-            class="movie-title max-w-[250px]"
-            src="./assets/the-little.png"
-            alt=""
-          />
-          <h4 class="text-[rgba(255,255,255,0.5)] font-normal text-3xl">
-            <span>2025</span
-            ><span
-              ><i class="text-white bg-[#ff3700] py-2 inline-block rounded-sm"
-                >12+</i
-              ></span
-            >
-            <span>2h 14min</span><span>Romance</span>
-          </h4>
-          <p class="text-md font-light leading-5 text-white m-5 ml-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            quos. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Quisquam, quos.
-          </p>
-          <div class="buttons">
-            <a
-              class="relative inline-block rounded-sm mr-2 bg-[#ff3700] text-white py-2 px-5 font-medium"
-              href="#"
-              ><i class="fa fa-play mx-2"></i>Watch</a
-            >
-            <a
-              class="relative inline-block rounded-sm mr-2 hover:bg-[#ff3700] transition-all duration-300 bg-black text-white py-2 px-5 font-medium"
-              href="#"
-              ><i class="fa fa-plus mx-2"></i>My List</a
-            >
-          </div>
+            <h1 class=""></h1>
+            <h4 class="text-[rgba(255,255,255,0.5)] font-normal text-3xl">
+              <span>2025</span
+              ><span
+                ><i class="text-white bg-[#ff3700] py-2 inline-block rounded-sm"
+                  >12+</i
+                ></span
+              >
+              <span>2h 14min</span><span>Romance</span>
+            </h4>
+            <p class="text-md font-light leading-5 text-white m-5 ml-3">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+              quos. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Quisquam, quos.
+            </p>
+            <div class="buttons">
+              <a
+                class="relative inline-block rounded-sm mr-2 bg-[#ff3700] text-white py-2 px-5 font-medium"
+                href="#"
+                ><i class="fa fa-play mx-2"></i>Watch</a
+              >
+              <a
+                class="relative inline-block rounded-sm mr-2 hover:bg-[#ff3700] transition-all duration-300 bg-black text-white py-2 px-5 font-medium"
+                href="#"
+                ><i class="fa fa-plus mx-2"></i>My List</a
+              >
+            </div>
           </div>
         </div>
 
-        <div class="content  the-little relative z-10 w-[550px] hidden scale-0 transition-all duration-500"
+      <!-- content 2 -->
+        <div class="content the-little relative z-10 w-[550px] hidden scale-0 transition-all duration-500"
         >
           <img
             class="movie-title max-w-[250px]"
@@ -125,38 +96,38 @@
         </div>
 
         <!-- carousel start  -->
-        <div class="carousel-box mt-20 md:mt-0 relative w-full md:min-w-[500px] lg:w-[950px] flex justify-center items-center bg-[rgba(0,0,0,0.2)] shadow-[20px_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-lg rounded-lg"
+        <div
+          class="carousel-box mt-20 md:mt-0 relative w-full md:min-w-[500px] lg:w-[950px] flex justify-center items-center bg-[rgba(0,0,0,0.2)] shadow-[20px_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-lg rounded-lg"
         >
-          <div
-            class="carousel relaltive h-[550px]  "
-            onClick="changeBg('avatar.jpg','the-little')"
-          >
-            <div class="carousel-item">
-              <img src="./assets/the-little-cover.jpg" alt="" />
+          <div class="carousel relaltive h-[550px]">
+            <div class="carousel-item " 
+              onclick="changeBg('saintmartin.jpg','the-little')"
+            >
+              <img src="./assets/saintmartin-mini.jpg" alt="" />
             </div>
             <div
               class="carousel-item"
-              onClick="changeBg('the-little-cover.jpg','the-little')"
+              onClick="changeBg('paharer-rasta.jpg','the-little')"
             >
-              <img src="./assets/the-little-cover.jpg" alt="" />
+              <img src="./assets/moon-mini.jpg" alt="" />
             </div>
             <div
               class="carousel-item"
-              onClick="changeBg('the-little-cover.jpg','the-little')"
+              onClick="changeBg('green-tree.jpg ','the-little')"
             >
-              <img src="./assets/the-little-cover.jpg" alt="" />
+              <img src="./assets/gash-mini.jpg" alt="" />
             </div>
             <div
               class="carousel-item"
-              onClick="changeBg('the-little-cover.jpg','the-little')"
+              onClick="changeBg('rice-seed.jpg','the-little')"
             >
-              <img src="./assets/the-little-cover.jpg" alt="" />
+              <img src="./assets/rice-mini.jpg" alt="" />
             </div>
             <div
               class="carousel-item"
-              onClick="changeBg('the-little-cover.jpg','the-little')"
+              onClick="changeBg('pahar.jpg','the-little')"
             >
-              <img src="./assets/the-little-cover.jpg" alt="" />
+              <img src="./assets/ice-mini.jpg" alt="" />
             </div>
           </div>
         </div>
@@ -166,7 +137,7 @@
         > -->
         <!-- social icons start  -->
         <ul
-          class="sci absolute md:bottom-[50px] bottom-0 right-24 mt-56  justify-center items-center gap-6 hidden sm:inline-flex"
+          class="sci absolute md:bottom-[50px] bottom-0 right-24 mt-56 justify-center items-center gap-6 hidden sm:inline-flex"
         >
           <li>
             <a href="#"><i class="fa-brands fa-facebook"></i></a>

@@ -13,6 +13,9 @@ module.exports = {
           'lg': '1500px !important',
           'xl': '2000px !important',
         },
+        fontFamily: {
+          'dm-sans': ['DM Sans', 'sans-serif'], // Custom font class
+        },
       },
     },
     plugins: [],

@@ -15,9 +15,11 @@ function changeBg(bg, title) {
     console.log("Title to activate:", title);
 
     if (banner) {
-        banner.style.background = `url("./assets/${bg}")`;
-        banner.style.backgroundSize = "cover";
-        banner.style.backgroundPosition = "center";
+        setTimeout(() => {
+            banner.style.background = `url("./assets/${bg}")`;
+            banner.style.backgroundSize = "cover";
+            banner.style.backgroundPosition = "center";
+        }, 500);
     } else {
         console.error("Banner element not found.");
     }
