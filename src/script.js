@@ -28,22 +28,34 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateCarousel(index) {
         const bodyContainer = document.querySelector(".banner");
         const allContents = document.querySelectorAll(".content");
+        const backdrop = document.createElement('div'); // Create a backdrop element
+
+        backdrop.className = 'backdrop'; // Assign a class for styling
+        bodyContainer.appendChild(backdrop); // Add backdrop to the body container
 
         bodyContainer.style.transition = "background-image 1s ease-in-out";
         bodyContainer.style.backgroundSize = "cover";
         bodyContainer.style.backgroundPosition = "center";
         bodyContainer.style.backgroundImage = `url('./assets/${carouselItems[index].bgImage}')`;
 
-        allContents.forEach(content => {
-            content.classList.remove("active");
-            content.classList.add("hidden");
-        });
+        // Show backdrop while loading
+        backdrop.style.display = 'block';
 
-        const activeContent = document.querySelector(`.${carouselItems[index].contentClass}`);
-        if (activeContent) {
-            activeContent.classList.add("active");
-            activeContent.classList.remove("hidden");
-        }
+        const img = new Image();
+        img.src = `./assets/${carouselItems[index].bgImage}`;
+        img.onload = () => {
+            backdrop.style.display = 'none'; // Hide backdrop after image loads
+            allContents.forEach(content => {
+                content.classList.remove("active");
+                content.classList.add("hidden");
+            });
+
+            const activeContent = document.querySelector(`.${carouselItems[index].contentClass}`);
+            if (activeContent) {
+                activeContent.classList.add("active");
+                activeContent.classList.remove("hidden");
+            }
+        };
     }
 
     // Function to handle auto-slide
