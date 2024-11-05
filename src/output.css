@@ -997,6 +997,10 @@ body {
   background-color: rgb(255 55 0 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-\[\#ff3700\]\/80:hover{
+  background-color: rgb(255 55 0 / 0.8);
+}
+
 @media (min-width: 640px){
   .sm\:inline-flex{
     display: inline-flex;
