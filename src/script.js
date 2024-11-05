@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const bodyContainer = document.querySelector(".banner");
         const allContents = document.querySelectorAll(".content");
 
+        // Add transition for smooth background change
+        bodyContainer.style.transition = "background-image 1s ease-in-out";
+
         // Update background image
         bodyContainer.style.backgroundImage = `url('./assets/${carouselItems[index].bgImage}')`;
 
