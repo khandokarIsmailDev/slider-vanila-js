@@ -748,6 +748,31 @@ video {
   padding-bottom: 6rem;
 }
 
+.px-20{
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.px-32{
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+
+.px-24{
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+.px-2{
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.px-28{
+  padding-left: 7rem;
+  padding-right: 7rem;
+}
+
 .pl-32{
   padding-left: 8rem;
 }
@@ -762,6 +787,10 @@ video {
 
 .pt-10{
   padding-top: 2.5rem;
+}
+
+.text-justify{
+  text-align: justify;
 }
 
 .font-dm-sans{
@@ -796,6 +825,10 @@ video {
 
 .leading-5{
   line-height: 1.25rem;
+}
+
+.leading-8{
+  line-height: 2rem;
 }
 
 .text-\[rgba\(255\2c 255\2c 255\2c 0\.5\)\]{
@@ -902,12 +935,12 @@ body {
   display: block;
   visibility: visible;
   transition: all 0.5s ease;
-  animation: slideIn 1s forwards;
-  /* Animation for the entire content */
 }
 
 .content.active .content-1{
   transform: scale(1);
+  animation: slideIn 1s forwards ;
+  /* Animation for the entire content */
 }
 
 .banner .content h4 span {
@@ -980,6 +1013,14 @@ body {
   .sm\:px-0{
     padding-left: 0px;
     padding-right: 0px;
+  }
+
+  .sm\:text-left{
+    text-align: left;
+  }
+
+  .sm\:text-start{
+    text-align: start;
   }
 }
 

@@ -16,24 +16,25 @@
   </head>
   <body>
     <div class="body-container bg-black">
-      
-
       <!-- banner start  -->
       <div
-        class="banner relative w-full min-h-screen py-24 md:px-20 flex flex-col md:flex-row justify-between items-center bg-[url('./assets/saintmartin.jpg')] bg-cover bg-center overflow-hidden transition-all duration-500"
+        class="banner relative w-full min-h-screen py-24 md:px-20 flex flex-col md:flex-row justify-between items-center bg-[url('./assets/paharer-rasta.jpg')] bg-cover bg-center overflow-hidden transition-all duration-500"
       >
-
-      <!-- content 1 -->
-        <div class="content active pr-20 pl-32 pt-10 xl:pt-0 md:pt-24 sm:px-0 md:px-10 relative z-10 w-[550px] hidden  transition-all duration-500"
+        <!-- content 1 -->
+        <div class="content active kishoregonj px-28 pt-10 xl:pt-0 md:pt-24 sm:px-0 md:px-10 relative z-10 w-[550px] hidden transition-all duration-500"
         >
-          <div class=" content-1 flex flex-col gap-2 items-center md:items-start scale-0">
-            <h1 class="font-dm-sans font-semibold text-white xl:text-8xl">Dhaka</h1>
-            
-            <p class="text-md font-light leading-5 text-white mb-5 ">
+          <div
+            class="content-1 flex flex-col gap-2 items-center md:items-start scale-0"
+          >
+            <h1 class="font-dm-sans font-semibold text-white xl:text-8xl">
+              Kishoregonj
+            </h1>
+
+            <p
+              class="text-xl font-light leading-8 text-justify sm:text-start text-white mb-5"
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-              quos. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Quisquam, quos.
+              quos. Lorem ipsum dolor sit amet consectetur adipisicing elit
             </p>
             <div class="buttons">
               <a
@@ -41,13 +42,41 @@
                 href="#"
                 ><i class="fa fa-play mx-2"></i>Watch</a
               >
-              
+            </div>
+          </div>
+        </div>
+        <!-- content 2 -->
+
+        <div
+          class="content dhaka  px-28 pt-10 xl:pt-0 md:pt-24 sm:px-0 md:px-10 relative z-10 w-[550px] hidden transition-all duration-500"
+        >
+          <div
+            class="content-1 flex flex-col gap-2 items-center md:items-start scale-0"
+          >
+            <h1 class="font-dm-sans font-semibold text-white xl:text-8xl">
+              Dhaka
+            </h1>
+
+            <p
+              class="text-xl font-light leading-8 text-justify sm:text-start text-white mb-5"
+            >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+              quos. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Quisquam
+            </p>
+            <div class="buttons">
+              <a
+                class="relative inline-block rounded-sm mr-2 bg-[#ff3700] text-white py-2 px-5 font-medium"
+                href="#"
+                ><i class="fa fa-play mx-2"></i>Watch</a
+              >
             </div>
           </div>
         </div>
 
-      <!-- content 2 -->
-        <div class="content the-little relative z-10 w-[550px] hidden scale-0 transition-all duration-500"
+        <!-- content 3 -->
+        <div
+          class="content the-little relative z-10 w-[550px] hidden scale-0 transition-all duration-500"
         >
           <img
             class="movie-title max-w-[250px]"
@@ -66,8 +95,7 @@
           <p class="text-md font-light leading-5 text-white m-5 ml-3">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
             quos. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Quisquam, quos.
+            Quisquam
           </p>
           <div class="buttons">
             <a
@@ -88,17 +116,19 @@
           class="carousel-box mt-20 md:mt-0 relative w-full md:min-w-[500px] lg:w-[950px] flex justify-center items-center bg-[rgba(0,0,0,0.2)] shadow-[20px_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-lg rounded-lg"
         >
           <div class="carousel relaltive h-[550px]">
-            <div class="carousel-item " 
-              onclick="changeBg('saintmartin.jpg','the-little')"
-            >
-              <img src="./assets/saintmartin-mini.jpg" alt="" />
-            </div>
             <div
               class="carousel-item"
-              onClick="changeBg('paharer-rasta.jpg','the-little')"
+              onClick="changeBg('paharer-rasta.jpg','kishoregonj')"
             >
               <img src="./assets/moon-mini.jpg" alt="" />
             </div>
+            <div
+              class="carousel-item"
+              onclick="changeBg('saintmartin.jpg','dhaka')"
+            >
+              <img src="./assets/saintmartin-mini.jpg" alt="" />
+            </div>
+
             <div
               class="carousel-item"
               onClick="changeBg('green-tree.jpg ','the-little')"
