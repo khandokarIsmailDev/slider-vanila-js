@@ -11,18 +11,27 @@ document.addEventListener("DOMContentLoaded", function () {
     let autoSlideInterval;
     let isSliding = false;
 
+    // Preload images function
     function preloadImages() {
-        carouselItems.forEach(item => {
-            const img = new Image();
-            img.src = `./assets/${item.bgImage}`;
-        });
+        return Promise.all(
+            carouselItems.map(item => {
+                return new Promise(resolve => {
+                    const img = new Image();
+                    img.src = `./assets/${item.bgImage}`;
+                    img.onload = resolve;
+                });
+            })
+        );
     }
 
+    // Function to update the background and content
     function updateCarousel(index) {
         const bodyContainer = document.querySelector(".banner");
         const allContents = document.querySelectorAll(".content");
 
         bodyContainer.style.transition = "background-image 1s ease-in-out";
+        bodyContainer.style.backgroundSize = "cover";
+        bodyContainer.style.backgroundPosition = "center";
         bodyContainer.style.backgroundImage = `url('./assets/${carouselItems[index].bgImage}')`;
 
         allContents.forEach(content => {
@@ -37,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Function to handle auto-slide
     function autoSlide() {
         if (!isSliding) {
             isSliding = true;
@@ -48,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Start auto-slide with a set interval
     function startAutoSlide() {
         autoSlideInterval = setInterval(autoSlide, 5300);
     }
@@ -62,11 +73,13 @@ document.addEventListener("DOMContentLoaded", function () {
         stopAutoSlide();
     }
 
-    // Initialize carousel display and preload images
-    updateCarousel(currentIndex);
-    preloadImages();
-    startAutoSlide();
+    // Initialize carousel once images are preloaded
+    preloadImages().then(() => {
+        updateCarousel(currentIndex); // Initial display
+        startAutoSlide(); // Start auto-slide after preloading
+    });
 
+    // Event listeners for carousel items
     document.querySelectorAll('.carousel-item').forEach((item, index) => {
         item.addEventListener('click', function () {
             changeBg(index);
@@ -75,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const carousel = document.querySelector('.carousel');
     M.Carousel.init(carousel, {});
-
     const instance = M.Carousel.getInstance(carousel);
 
     setInterval(() => {
