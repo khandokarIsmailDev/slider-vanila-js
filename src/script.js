@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Define an array of carousel items with background images and content IDs
     const carouselItems = [
         { bgImage: "paharer-rasta.jpg", contentClass: "kishoregonj" },
         { bgImage: "saintmartin.jpg", contentClass: "dhaka" },
@@ -9,9 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     let currentIndex = 0;
-    let isChangingBg = false;
+    let autoSlideInterval;
+    let isSliding = false; // Flag to prevent multiple slides at once
 
-    // Function to update background image and content based on index
+    // Function to update the background and content based on the current index
     function updateCarousel(index) {
         const bodyContainer = document.querySelector(".banner");
         const allContents = document.querySelectorAll(".content");
@@ -33,112 +33,60 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Manual change background function for onclick events
-    // function changeBg(bgImage, contentClass) {
-    //     const index = carouselItems.findIndex(
-    //         item => item.bgImage === bgImage && item.contentClass === contentClass
-    //     );
-    //     if (index !== -1) {
-    //         currentIndex = index;
-    //         updateCarousel(currentIndex);
-    //     }
-    // }
-
-    // Auto-slide function
+    // Function to handle auto-slide
     function autoSlide() {
-        currentIndex = (currentIndex + 1) % carouselItems.length;
-        updateCarousel(currentIndex);
+        if (!isSliding) { // Check if not currently sliding
+            isSliding = true; // Set the flag to true
+            currentIndex = (currentIndex + 1) % carouselItems.length;
+            updateCarousel(currentIndex);
+            setTimeout(() => {
+                isSliding = false; // Reset the flag after the update
+            }, 1000); // Adjust timeout based on your transition duration
+        }
     }
 
-    // Start auto-slide every 5 seconds
-    setInterval(autoSlide, 5300);
+    // Start auto-slide with a set interval
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(autoSlide, 5300);
+    }
+
+    // Stop auto-slide
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    // Manual change background function
+    function changeBg(index) {
+        currentIndex = index; // Update the current index
+        updateCarousel(currentIndex);
+        stopAutoSlide(); // Stop auto-slide on manual change
+        //setTimeout(startAutoSlide, 7000); // Restart auto-slide after 5 seconds
+    }
 
     // Initialize carousel display
     updateCarousel(currentIndex);
 
+    // Start the auto-slide
+    startAutoSlide();
+
+    // Set up event listeners for carousel items
+    document.querySelectorAll('.carousel-item').forEach((item, index) => {
+        item.addEventListener('click', function () {
+            changeBg(index); // Change background based on clicked item
+        });
+    });
+
     // Initialize Materialize carousel
     const carousel = document.querySelector('.carousel');
     M.Carousel.init(carousel, {
-        indicators: true
+        // indicators: true
     });
 
     const instance = M.Carousel.getInstance(carousel);
 
-    // Automatically move to the next slide every 3 seconds and update the background
+    // Automatically move to the next slide every 5 seconds
     setInterval(() => {
-        const activeItem = document.querySelector('.carousel-item.active');
-        updateBackgroundFromItem(activeItem); // Call background update before moving to the next slide
-        instance.next();
-    }, 5000);
-    
-    // Update background on item click
-    document.querySelectorAll('.carousel-item').forEach(item => {
-        item.addEventListener('click', function () {
-            const bg = this.querySelector('img').src.split('/').pop();
-            const title = this.getAttribute('data-title');
-            // changeBg(bg, title);
-        });
-    });
-
-    // Function to update background from the active item
-    function updateBackgroundFromItem(item) {
-        if (item) {
-            const bg = item.querySelector('img').src.split('/').pop();
-            const title = item.getAttribute('data-title');
-            // changeBg(bg, title);
-        }
-    }
-});
-
-let isChangingBg = false;
-
-// Function to change background and content with delay
-function changeBg(bg, title) {
-    if (isChangingBg) return; // Prevent further calls if already changing
-    isChangingBg = true; // Set the flag
-
-    const banner = document.querySelector(".banner");
-    const contents = document.querySelectorAll(".content");
-
-    console.log("Changing background to:", bg);
-    console.log("Title to activate:", title);
-
-    if (banner) {
-        setTimeout(() => {
-            banner.style.background = `url("./assets/${bg}")`;
-            banner.style.backgroundSize = "cover";
-            banner.style.backgroundPosition = "center";
-        }, 500);
-    } else {
-        console.error("Banner element not found.");
-    }
-
-    setTimeout(() => {
-        contents.forEach(content => {
-            content.classList.remove("active");
-            if (content.classList.contains(title)) {
-                content.classList.add("active");
-            }else{
-                content.classList.add("hidden");
-            }
-        });
-    }, 500); // Delay of 500ms for the contents update
-
-    setTimeout(() => {
-        isChangingBg = false;
-    }, 500); // 500ms delay
-}
-
-// Update background on item click
-document.querySelectorAll('.carousel-item').forEach(item => {
-    item.addEventListener('click', function(event) {
-        event.preventDefault();
-        const bg = this.querySelector('img').src.split('/').pop();
-        const title = this.classList[1];
-        changeBg(bg, title);
-        
-        // Pause auto-slide when an item is clicked
-        clearInterval(autoSlideInterval); // Stop the auto-slide
-        autoSlideInterval = setInterval(autoSlide, 15000); // Restart auto-slide after a delay if needed
-    });
+        instance.next(); // Move to the next item
+        autoSlide(); // Update the background based on the next item
+    }, 5300);
 });
