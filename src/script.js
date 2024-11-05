@@ -24,12 +24,14 @@ function changeBg(bg, title) {
         console.error("Banner element not found.");
     }
 
-    contents.forEach(content => {
-        content.classList.remove("active");
-        if (content.classList.contains(title)) {
-            content.classList.add("active");
-        }
-    });
+    setTimeout(() => {
+        contents.forEach(content => {
+            content.classList.remove("active");
+            if (content.classList.contains(title)) {
+                content.classList.add("active");
+            }
+        });
+    }, 500); // Delay of 500ms for the contents update
 
     setTimeout(() => {
         isChangingBg = false;
