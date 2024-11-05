@@ -69,8 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initialize carousel display
     updateCarousel(currentIndex);
 
-    // Start the auto-slide
-    startAutoSlide();
+   
 
     // Set up event listeners for carousel items
     document.querySelectorAll('.carousel-item').forEach((item, index) => {
@@ -93,3 +92,20 @@ document.addEventListener("DOMContentLoaded", function () {
         autoSlide(); // Update the background based on the next item
     }, 5300);
 });
+
+function preloadImages() {
+    carouselItems.forEach(item => {
+        const img = new Image();
+        img.src = `./assets/${item.bgImage}`; // Preload each image
+    });
+}
+
+// Initialize carousel display
+updateCarousel(currentIndex);
+preloadImages(); // Preload images before starting auto-slide
+
+// Start the auto-slide
+startAutoSlide();
+
+ // Start the auto-slide
+ startAutoSlide();
